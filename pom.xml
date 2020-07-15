@@ -78,13 +78,15 @@
             <groupId>HamsterYDS</groupId>
             <artifactId>UntilTheEnd</artifactId>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/UntilTheEnd v5.8.4-RC.jar</systemPath>
+            <version>5.8.4-RC</version>
+            <systemPath>${pom.basedir}/libs/UntilTheEnd v5.8.4-RC.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>net.milkbowl.vault</groupId>
             <artifactId>Vault</artifactId>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/Vault.jar</systemPath>
+            <version>1.7.2-b107</version>
+            <systemPath>${pom.basedir}/libs/Vault.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>io.puharesource.mc</groupId>
