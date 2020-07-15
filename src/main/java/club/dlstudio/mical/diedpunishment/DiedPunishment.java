@@ -84,12 +84,9 @@ public final class DiedPunishment extends JavaPlugin implements Listener {
                         tmApi.giveScoreboard(player);
                     }
                     int ticks = punishmentTicks - player.getStatistic(Statistic.TIME_SINCE_DEATH);
-                    tmApi.setScoreboardTitle(player, color("&c死亡惩罚"));
-                    tmApi.setScoreboardValue(player, 2, " ");
-                    tmApi.setScoreboardValue(player, 3, color("&6收到的伤害双倍"));
-                    tmApi.setScoreboardValue(player, 4, " ");
-                    tmApi.setScoreboardValue(player, 5, color("&e剩余 &c" + (ticks / 20) / 60 + " &e分钟"));
-                    tmApi.setScoreboardValue(player, 6, " ");
+                    tmApi.setScoreboardTitle(player, color("&c死亡惩罚中"));
+                    tmApi.setScoreboardValue(player, 2, color("&6收到的伤害双倍"));
+                    tmApi.setScoreboardValue(player, 3, color("&e剩余 &c" + (ticks / 20) / 60 + " &e分钟"));
                     if (ticks < 1) {
                         tmApi.removeScoreboard(player);
                         users.remove(player);
@@ -183,17 +180,10 @@ public final class DiedPunishment extends JavaPlugin implements Listener {
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event) {
         Player user = (Player) event.getDamager();
-        Entity entity = event.getEntity();
-        if (entity.getType() != EntityType.BAT) {
-            return;
-        } else {
-            String customName = entity.getCustomName();
-            double money = Double.parseDouble(customName);
-            if (entity.isDead()) {
-                eco.depositPlayer(user, money);
-                user.sendMessage(color(getMoneyFromBatMessage));
-            }
-        }
+        Bat bat = (Bat) event.getEntity();
+        String customName = bat.getCustomName();
+        double money = Double.parseDouble(customName);
+        //TODO: 杀死蝙蝠之后获得金币
     }
 
     @EventHandler
