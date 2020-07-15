@@ -85,11 +85,11 @@ public final class DiedPunishment extends JavaPlugin implements Listener {
                     }
                     int ticks = punishmentTicks - player.getStatistic(Statistic.TIME_SINCE_DEATH);
                     tmApi.setScoreboardTitle(player, color("&c死亡惩罚"));
-                    tmApi.setScoreboardValue(player, 2, "");
+                    tmApi.setScoreboardValue(player, 2, " ");
                     tmApi.setScoreboardValue(player, 3, color("&6收到的伤害双倍"));
-                    tmApi.setScoreboardValue(player, 4, "");
-                    tmApi.setScoreboardValue(player, 5, "&e剩余 &c" + (ticks / 20) / 60 + " &e分钟");
-                    tmApi.setScoreboardValue(player, 6, "");
+                    tmApi.setScoreboardValue(player, 4, " ");
+                    tmApi.setScoreboardValue(player, 5, color("&e剩余 &c" + (ticks / 20) / 60 + " &e分钟"));
+                    tmApi.setScoreboardValue(player, 6, " ");
                     if (ticks < 1) {
                         tmApi.removeScoreboard(player);
                         users.remove(player);
@@ -147,7 +147,7 @@ public final class DiedPunishment extends JavaPlugin implements Listener {
             World world = user.getWorld();
             Bat bat = (Bat) world.spawnEntity(user.getLocation(), EntityType.BAT);
             bat.setCustomNameVisible(true);
-            bat.setCustomName(ChatColor.GOLD + String.valueOf(money));
+            bat.setCustomName(String.valueOf(money));
             user.sendMessage(color(dropMoneyMessage.replace("{money}", String.valueOf(money)).replace("{location}", formatLocation(user.getLocation()))));
         }
     }
