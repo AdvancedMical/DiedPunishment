@@ -2,6 +2,5 @@ name: DiedPunishment
 version: ${project.version}
 main: club.dlstudio.mical.diedpunishment.DiedPunishment
 api-version: 1.16.1
-depend: [CMI]
-softdepend: [UntilTheEnd]
+depend: [UntilTheEnd, TitleManager, Vault]
 authors: [Mical]
